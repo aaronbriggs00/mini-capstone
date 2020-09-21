@@ -3,15 +3,17 @@ class Product < ApplicationRecord
   validates :name, presence: true, uniqueness: true 
   validates :description, length: { in: 10..1000 }
   validates :price, numericality: { greater_than: 0}
-  validates :image_path, presence: true
   validates :inventory, numericality: { greater_than: 0}
 
-  # validates_format_of :image_path, :with => %r{\.(png|jpg|jpeg)$}i
+  #scopes
+  scope :name_search, -> (search_term) { where("name iLIKE ?", "%#{search_term}%")}
 
-
-
-
-
+  #linked database calls
+  # def supplier
+  #   Supplier.find_by(id: supplier_id)
+  # end
+  belongs_to :supplier
+  has_many :images
 
   #functions
   def is_discounted?

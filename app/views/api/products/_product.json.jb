@@ -2,9 +2,10 @@
   id: product.id,
   name: product.name,
   price: product.price,
-  image_path: product.image_path,
+  images: product.images,
   description: product.description,
   inventory: product.inventory,
+  supplier: product.supplier.name,
   formatted: {
     discount_status: product.is_discounted?,
     tax: product.tax,
