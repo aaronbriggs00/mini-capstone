@@ -1,4 +1,7 @@
 class Api::ProductsController < ApplicationController
+
+  before_action :authenticate_admin, except: [:index, :show]
+  
   def index
     @products = Product.all
     if params[:search]
@@ -56,8 +59,12 @@ class Api::ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    render json: {message:"destroy operation successful"}
+    if current_user
+      @product = Product.find(params[:id])
+      @product.destroy
+      render json: {message:"destroy operation successful"}
+    else
+      render json: {error: "you must be logged in to perform this action."}
+    end
   end
 end

@@ -14,6 +14,9 @@ class Product < ApplicationRecord
   # end
   belongs_to :supplier
   has_many :images
+  has_many :orders
+  has_many :product_categories
+  has_many :categories, through: :product_categories
 
   #functions
   def is_discounted?

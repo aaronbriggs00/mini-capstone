@@ -10,5 +10,6 @@
     discount_status: product.is_discounted?,
     tax: product.tax,
     total: product.total
-  }
+  },
+  current_user: current_user
 }

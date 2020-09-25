@@ -1,0 +1,6 @@
+1. a create order post route
+2. allow a logged in user with a valid session to pass parameters (product and quantity)
+3. controller logic to use those params to create an order
+4. save the order
+5. add a model method to peform/initiate the purchase
+6. update the quantity of the product after the 'purchase'
