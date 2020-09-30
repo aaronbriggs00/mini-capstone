@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     post "/suppliers" => "suppliers#create"
     patch "/suppliers/:id" => "suppliers#update"
     delete "/suppliers/:id" => "suppliers#destroy"
+    #carted_products CRUD
+    get "/carted_products" => "carted_products#index"
+    post "/carted_products" => "carted_products#create"
+    delete "/carted_products/:id" => "carted_products#destroy"
     #users
     post "/users" => "users#create"
     #sessions

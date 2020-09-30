@@ -13,8 +13,8 @@ class Product < ApplicationRecord
   #   Supplier.find_by(id: supplier_id)
   # end
   belongs_to :supplier
+  has_many :carted_products
   has_many :images
-  has_many :orders
   has_many :product_categories
   has_many :categories, through: :product_categories
 
