@@ -1,0 +1,15 @@
+<h1>Edit Product</h1>
+
+<% if @errors%>
+  <h4>text</h4>
+<% end %>
+
+<form action="/products/<%= @product.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>Name: <input type="text" name="name" value ="<%= @product.name%>"></div>
+  <div>Price: <input type="text" name="price" value ="<%= @product.price%>"></div>
+  <div>Description: <input type="text" name="description" value ="<%= @product.description%>"></div>
+  <div>Supplier_id: <input type="text" name="supplier_id" value ="<%= @product.supplier_id%>"></div>
+  <div>Inventory: <input type="text" name="inventory" value ="<%= @product.inventory%>"></div>
+  <input type="submit" value="Update Product" />
+</form>
